@@ -41,7 +41,11 @@ public class LinkedList {
     }
 
     public ListNode removeFirst() {
+        if (head == null)
+            return null;
+
         ListNode temp = head;
+
         head = head.getNext();
 
         size--;
