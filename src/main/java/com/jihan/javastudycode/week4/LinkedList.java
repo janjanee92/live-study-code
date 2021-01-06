@@ -4,19 +4,6 @@ public class LinkedList {
     private ListNode head;
     private int size = 0;
 
-    ListNode node (int index) {
-        ListNode x = head;
-        for (int i = 0; i < index; i++) {
-
-            if (x == null) {
-                return null;
-            }
-
-            x = x.getNext();
-        }
-        return x;
-    }
-
     public ListNode addFirst(int input) {
         ListNode newNode = new ListNode(input);
         newNode.setNext(head);
@@ -31,7 +18,7 @@ public class LinkedList {
         } else {
             ListNode newNode = new ListNode(input);
 
-            ListNode preNode = node(index - 1);
+            ListNode preNode = ListNode.node(head, index - 1);
 
             if (preNode == null) {
                 return null;
@@ -57,7 +44,6 @@ public class LinkedList {
         ListNode temp = head;
         head = head.getNext();
 
-        temp = null;
         size--;
 
         return temp;
@@ -67,7 +53,7 @@ public class LinkedList {
         if (index == 0) {
             return removeFirst();
         } else {
-            ListNode preNode = node(index -1);
+            ListNode preNode = ListNode.node(head, index -1);
 
             if (preNode == null) {
                 return null;
@@ -77,10 +63,20 @@ public class LinkedList {
             preNode.setNext(removed.getNext());
 
             size--;
-            removed = null;
 
             return removed;
         }
+    }
+
+    public ListNode removeLast() {
+        if (size == 1) {
+            return removeFirst();
+        }
+        return remove(size-1);
+    }
+
+    public int size() {
+        return size;
     }
 
     public int indexOf(int data) {
@@ -105,14 +101,14 @@ public class LinkedList {
     public String toString() {
         ListNode temp = head;
 
-        String str = "[";
+        StringBuilder str = new StringBuilder("[");
 
         while (temp.getNext() != null) {
-            str += temp + ",";
+            str.append(temp).append(",");
             temp = temp.getNext();
         }
 
-        str += temp;
+        str.append(temp);
 
         return str + "]";
     }

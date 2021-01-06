@@ -43,10 +43,13 @@ class LinkedListTest {
         linkedList.add(20);
         linkedList.add(30);
 
-        ListNode removed = linkedList.remove(1);
+        ListNode removed1 = linkedList.remove(2);
+        ListNode removed2 = linkedList.removeLast();
+        ListNode removed3 = linkedList.removeLast();
 
-        assertNull(removed);
-        assertEquals(30, head.getNext().getData());
+        assertEquals(30, removed1.getData());
+        assertEquals(20, removed2.getData());
+        assertEquals(10, removed3.getData());
     }
 
     @Test
@@ -70,8 +73,8 @@ class LinkedListTest {
         linkedList.add(20);
         linkedList.add(30);
 
-        assertEquals(true, linkedList.contains(30));
-        assertEquals(false, linkedList.contains(100));
+        assertTrue(linkedList.contains(30));
+        assertFalse(linkedList.contains(100));
 
     }
 }

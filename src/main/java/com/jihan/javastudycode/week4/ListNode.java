@@ -26,6 +26,19 @@ public class ListNode {
         this.next = null;
     }
 
+    public static ListNode node (ListNode head, int index) {
+        ListNode x = head;
+        for (int i = 0; i < index; i++) {
+
+            if (x == null) {
+                return null;
+            }
+
+            x = x.getNext();
+        }
+        return x;
+    }
+
     @Override
     public String toString() {
         return "Node{" +
