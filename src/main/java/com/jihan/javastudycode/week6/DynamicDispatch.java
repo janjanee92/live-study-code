@@ -26,6 +26,7 @@ public class DynamicDispatch {
     public static void main(String[] args) {
         List<Service> svc = Arrays.asList(new MyService1(), new MyService2());
         svc.forEach(Service::run);
+        
     }
 
 }
