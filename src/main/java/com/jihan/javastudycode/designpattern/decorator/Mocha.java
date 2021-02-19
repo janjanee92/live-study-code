@@ -1,6 +1,6 @@
 package com.jihan.javastudycode.designpattern.decorator;
 
-public class Mocha extends CondimentDecorator {
+public class Mocha extends ToppingDecorator {
 
     Beverage beverage;
 
@@ -9,8 +9,8 @@ public class Mocha extends CondimentDecorator {
     }
 
     @Override
-    public double cost() {
-        return .20 + beverage.cost();
+    public int cost() {
+        return 1000 + beverage.cost();
     }
 
     @Override

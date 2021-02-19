@@ -1,6 +1,6 @@
 package com.jihan.javastudycode.designpattern.decorator;
 
-public class Soy extends CondimentDecorator {
+public class Soy extends ToppingDecorator {
 
     Beverage beverage;
 
@@ -9,8 +9,8 @@ public class Soy extends CondimentDecorator {
     }
 
     @Override
-    public double cost() {
-        return .15 + beverage.cost();
+    public int cost() {
+        return 700 + beverage.cost();
     }
 
     @Override

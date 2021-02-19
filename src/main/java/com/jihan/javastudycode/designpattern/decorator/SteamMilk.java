@@ -1,6 +1,6 @@
 package com.jihan.javastudycode.designpattern.decorator;
 
-public class SteamMilk extends CondimentDecorator {
+public class SteamMilk extends ToppingDecorator {
 
     Beverage beverage;
 
@@ -9,8 +9,8 @@ public class SteamMilk extends CondimentDecorator {
     }
 
     @Override
-    public double cost() {
-        return .10 + beverage.cost();
+    public int cost() {
+        return 700 + beverage.cost();
     }
 
     @Override

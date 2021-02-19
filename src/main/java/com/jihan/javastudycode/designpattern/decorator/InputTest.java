@@ -11,7 +11,7 @@ public class InputTest {
                         new BufferedInputStream(
                             new FileInputStream("test.txt")))) {
 
-            while((c = in.read()) >= 0) {
+            while((c = in.read()) != -1) {
                 System.out.print((char)c);
             }
 

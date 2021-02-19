@@ -1,6 +1,6 @@
 package com.jihan.javastudycode.designpattern.decorator;
 
-public class Whip extends CondimentDecorator {
+public class Whip extends ToppingDecorator {
 
     Beverage beverage;
 
@@ -9,8 +9,8 @@ public class Whip extends CondimentDecorator {
     }
 
     @Override
-    public double cost() {
-        return .10 + beverage.cost();
+    public int cost() {
+        return 500 + beverage.cost();
     }
 
     @Override
