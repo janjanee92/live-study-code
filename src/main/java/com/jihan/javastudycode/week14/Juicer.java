@@ -2,7 +2,7 @@ package com.jihan.javastudycode.week14;
 
 public class Juicer {
 
-    static Juice makeJuice(FruitBox<? extends Fruit> box) {
+    static <T extends Fruit> Juice makeJuice(FruitBox<? extends T> box) {
         StringBuilder tmp = new StringBuilder();
 
         for (Fruit f : box.getList()) {
