@@ -9,6 +9,7 @@ public class Generics3 {
         List<Integer> list = Arrays.asList(1,2,3,4,5);
         reverse(list);
         System.out.println(list);
+
     }
 
     static void reverse(List<?> list) {
