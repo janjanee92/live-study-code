@@ -1,18 +1,12 @@
 package com.jihan.javastudycode.week4;
 
+import java.util.EmptyStackException;
+
 public class IntStack {
 
     private int max;
     private int ptr;
     private int[] stk;
-
-    public class EmptyInStackException extends RuntimeException {
-        public EmptyInStackException() {}
-    }
-
-    public class OverflowIntStackException extends RuntimeException {
-        public OverflowIntStackException() {}
-    }
 
     public IntStack (int capacity) {
         ptr = 0;
@@ -24,15 +18,15 @@ public class IntStack {
         }
     }
 
-    public void push(int x) throws OverflowIntStackException {
+    public void push(int x) {
         if (ptr == max)
-            throw new OverflowIntStackException();
+            throw new StackOverflowError();
         stk[ptr++] = x;
     }
 
-    public int pop() throws EmptyInStackException {
+    public int pop() {
         if (ptr <= 0)
-            throw new EmptyInStackException();
+            throw new EmptyStackException();
         return stk[--ptr];
     }
 

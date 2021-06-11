@@ -2,6 +2,8 @@ package com.jihan.javastudycode.week4;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.EmptyStackException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class IntStackTest {
@@ -22,7 +24,7 @@ class IntStackTest {
         s.push(20);
         s.push(30);
 
-        assertThrows(IntStack.OverflowIntStackException.class, ()-> s.push(40));
+        assertThrows(StackOverflowError.class, ()-> s.push(40));
 
     }
 
@@ -44,6 +46,6 @@ class IntStackTest {
     void pop_empty_stack_test () {
         IntStack s = new IntStack(5);
 
-        assertThrows(IntStack.EmptyInStackException.class, () -> s.pop());
+        assertThrows(EmptyStackException.class, () -> s.pop());
     }
 }
