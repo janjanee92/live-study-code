@@ -33,7 +33,7 @@ public class StringEx3 {
         int i2 = Integer.valueOf("200");
         boolean b = Boolean.parseBoolean("true");
         boolean b2 = Boolean.valueOf("false");
-
+        StringBuffer sb = new StringBuffer();
     }
 
     private static String joinByteArr(byte[] bArr) {
