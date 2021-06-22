@@ -5,68 +5,67 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class MyVector implements List {
-    Object[] data = null;
-    int capacity = 0;
-    int size = 0;
+public class MyArrayList implements List {
+    Object[] elementData = null;
+    private int capacity = 0;
+    private int size = 0;
 
-    public MyVector(int capacity) {
-        if (capacity < 0)
-            throw new IllegalArgumentException("유효하지 않은 값입니다. : " + capacity);
-        this.capacity = capacity;
-        data = new Object[capacity];
+    public MyArrayList(int initialCapacity) {
+        if (initialCapacity < 0)
+            throw new IllegalArgumentException("유효하지 않은 capacity 값 : " + initialCapacity);
+
+        this.capacity = initialCapacity;
+        elementData = new Object[initialCapacity];
     }
 
-    public MyVector() {
+    public MyArrayList() {
         this(10);
-    }
-
-    public void ensureCapacity(int minCapacity) {
-        if (minCapacity - data.length > 0)
-            setCapacity(minCapacity);
     }
 
     public boolean add(Object obj) {
         ensureCapacity(size + 1);
-        data[size++] = obj;
+        elementData[size++] = obj;
         return true;
+    }
+
+    public void ensureCapacity(int minCapacity) {
+        if (minCapacity - elementData.length > 0)
+            setCapacity(minCapacity);
+    }
+
+    private void setCapacity(int capacity) {
+        if(this.capacity == capacity) return;
+
+        Object[] tmp = new Object[capacity];
+        System.arraycopy(elementData, 0, tmp, 0, size);
+        elementData = tmp;
+        this.capacity = capacity;
     }
 
     public Object get(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
-        return data[index];
-    }
-
-
-
-    private void setCapacity(int capacity) {
-        if (this.capacity == capacity) return;
-
-        Object[] tmp = new Object[capacity];
-        System.arraycopy(data, 0, tmp, 0, size);
-        data = tmp;
-        this.capacity = capacity;
+        return elementData[index];
     }
 
     public Object remove(int index) {
-        Object oldObj = null;
+        Object oldObj;
 
         if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException("범위를 벗어났습니다.");
-        oldObj = data[index];
+        oldObj = elementData[index];
 
         if (index != size - 1)
-            System.arraycopy(data, index + 1, data, index, size - index - 1);
+            System.arraycopy(elementData, index + 1, elementData, index, size - index - 1);
 
-        data[size - 1] = null;
+        elementData[size - 1] = null;
         size--;
         return oldObj;
     }
 
-    public boolean remove(Object obj){
+    public boolean remove(Object obj) {
         for (int i = 0; i < size; i++) {
-            if(obj.equals(data[i])) {
+            if(obj.equals(elementData[i])) {
                 remove(i);
                 return true;
             }
@@ -74,19 +73,15 @@ public class MyVector implements List {
         return false;
     }
 
-    public void trimToSize() {
-        setCapacity(size);
-    }
-
     public void clear() {
         for (int i = 0; i < size; i++)
-            data[i] = null;
+            elementData[i] = null;
         size = 0;
     }
 
     public Object[] toArray() {
         Object[] result = new Object[size];
-        System.arraycopy(data, 0, result, 0, size);
+        System.arraycopy(elementData, 0, result, 0, size);
 
         return result;
     }
