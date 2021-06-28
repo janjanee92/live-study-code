@@ -1,8 +1,6 @@
 package com.jihan.javastudycode.cf;
 
-import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class PriorityQueueEx {
     public static void main(String[] args) {
@@ -15,5 +13,6 @@ public class PriorityQueueEx {
 
         while (!pq.isEmpty())
             System.out.println(pq.poll());
+
     }
 }
