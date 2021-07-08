@@ -1,4 +1,4 @@
-package com.jihan.javastudycode.cf;
+package com.jihan.javastudycode.cf.stack_queue;
 
 import java.util.*;
 

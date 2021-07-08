@@ -1,4 +1,4 @@
-package com.jihan.javastudycode.cf;
+package com.jihan.javastudycode.cf.list;
 
 import java.util.*;
 
