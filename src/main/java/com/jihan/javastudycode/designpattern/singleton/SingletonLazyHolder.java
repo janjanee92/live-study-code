@@ -2,7 +2,7 @@ package com.jihan.javastudycode.designpattern.singleton;
 
 public class SingletonLazyHolder {
 
-    public SingletonLazyHolder() {}
+    private SingletonLazyHolder() {}
 
     public static SingletonLazyHolder getInstance() {
         return LazyHolder.INSTANCE;
